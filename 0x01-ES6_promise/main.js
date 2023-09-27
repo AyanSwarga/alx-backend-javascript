@@ -1,4 +1,4 @@
-import handleProfileSignup from "./3-all";
+import getResponseFromAPI from "./0-promise.js";
 
-handleProfileSignup();
-
+const response = getResponseFromAPI();
+console.log(response instanceof Promise);
