@@ -1,12 +1,9 @@
-export default function cleanSet(set, startString) {
-  const arr = [];
-  if (startString === '' || typeof startString !== 'string') {
+export default function cleanSet(set, string) {
+  if (string === undefined || string.length === 0) {
     return '';
   }
-  for (const elem of set) {
-    if (elem.includes(startString)) {
-      arr.push(elem.replace(startString, ''));
-    }
-  }
-  return arr.join('-');
+  return [...set]
+    .filter((str) => (str !== undefined ? str.startsWith(string) : ''))
+    .map((str) => (str !== undefined ? str.slice(string.length) : ''))
+    .join('-');
 }
